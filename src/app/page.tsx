@@ -1,4 +1,5 @@
 import React from "react";
+import { Paginator } from "../components/paginator";
 
 const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -15,7 +16,7 @@ export default async function Home() {
 
   return (
     <div className="p-8 h-full w-full">
-      Posts
+      <Paginator data={data} />
     </div>
   );
 }
