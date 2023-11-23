@@ -1,8 +1,9 @@
-export default async function Home() {
+import React from "react";
 
-  return (
-    <nav className="p-8 h-full w-full">
+export default async function Home() {
+return (
+    <header className="p-8 h-full w-full">
       Header
-    </nav>
+    </header>
   );
 }

@@ -31,7 +31,6 @@ export function Paginator({ data: pageData }: PaginatorProps) {
 
   const handleSearch = (ev: React.FormEvent<HTMLInputElement>) => {
     const result = fuse.search(ev.currentTarget.value);
-
     setData(
       result.length
         ? result.map(({ item: { title, id, body } }) => ({ title, id, body }))

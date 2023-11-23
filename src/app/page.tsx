@@ -1,7 +1,7 @@
 import React from "react";
 import { Paginator } from "../components/paginator";
+import { BASE_URL } from "@/utils/constant";
 
-const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
 
 export async function getBlogInfo() {
   const data = await fetch(BASE_URL);

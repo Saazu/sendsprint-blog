@@ -1,8 +1,5 @@
 import Link from "next/link";
-export const dynamicParams = false;
-
-const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
-const COMMENT_URL = "https://jsonplaceholder.typicode.com/comments?postId=";
+import { BASE_URL, COMMENT_URL } from "@/utils/constant";
 
 type TBlog = {
   userId: number;
