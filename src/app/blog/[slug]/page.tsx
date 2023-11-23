@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PostComment } from "./comment";
 import { BASE_URL, COMMENT_URL } from "@/utils/constant";
 
 type TBlog = {
@@ -54,6 +55,7 @@ export default async function Page(
       </div>
       <h2>ID: {id} - USERID:{userId}</h2>
 
+      <PostComment comments={comments} />
 
       <Link href="/">
         <div className="pt-[50px]">Go Home</div>

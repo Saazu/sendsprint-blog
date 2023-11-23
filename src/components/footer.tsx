@@ -2,10 +2,9 @@ import React from "react";
 
 
 export default async function Home() {
-
   return (
-    <footer className="p-8 h-full w-full">
+    <div className="p-8 sticky bottom-0">
       Footer
-    </footer>
+    </div>
   );
 }

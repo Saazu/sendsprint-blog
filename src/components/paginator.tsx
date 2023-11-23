@@ -1,18 +1,19 @@
 "use client";
 
-import Fuse from "fuse.js";
-import Link from "next/link";
-import { useState } from "react";
+import Fuse from "fuse.js"
+import { useState } from "react"
+import BlogListItem from "./BlogListItem"
+import PaginationContols from "./PaginationControls";
 
 type PaginatorProps = {
   data: { title: string; id: number; body: string }[];
 };
 
-export function Paginator({ data: pageData }: PaginatorProps) {
+export function Paginator({ data: pageData }: Readonly<PaginatorProps>) {
   const [data, setData] = useState(pageData);
   const [page, setPage] = useState(0);
 
-  const PAGE_CONSTANT = 10;
+  const PAGE_CONSTANT = 8;
   const PAGE_LIMIT = data.length;
 
   const fuse = new Fuse(data, {
@@ -46,27 +47,20 @@ export function Paginator({ data: pageData }: PaginatorProps) {
         className="py-5"
         onChange={handleSearch}
       />
-      {
-        <div>
-          <div>
-            {data.slice(page, page + PAGE_CONSTANT).map(({ id, title }) => (
-              <div key={id}>
-                <Link href={`/blog/${id}`}>
-                  <span className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
-                    {`${title}`}
-                  </span>
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div>
-            <button className="pr-9 py-9" onClick={handlePrevious}>
-              Previous 10
-            </button>
-            <button onClick={handleNext}>Next 10</button>
-          </div>
+      <div className="flex flex-col jusitfy-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-16 mt-16">
+          {data.slice(page, page + PAGE_CONSTANT).map(({ id, title }) => (
+            <BlogListItem key={id} id={id} title={title}/>
+          ))}
         </div>
-      }
+        <div className="flex flex-row justify-center bottom-0">
+          <PaginationContols 
+            pageSize={PAGE_CONSTANT}
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+          />
+        </div>    
+      </div>
     </div>
   );
 }
