@@ -7,10 +7,10 @@ export function PostComment(
   { comments: postComments }: { comments: Comment[] },
 ) {
   const [comments, setComments] = React.useState(postComments);
-  const [value, setValue] = React.useState("");
+  const [newComment, setNewComment] = React.useState("");
 
   const handleChange = (ev: React.FormEvent<HTMLTextAreaElement>) => {
-    setValue(ev.currentTarget.value);
+    setNewComment(ev.currentTarget.value);
   };
 
   const handleSubmit = async (ev: React.FormEvent<HTMLButtonElement>) => {
@@ -18,7 +18,7 @@ export function PostComment(
 
     try {
       const dataIn = {
-        body: value,
+        body: newComment,
         postId: comments[0].postId,
         email: "example@example.com",
         name: "user",
@@ -33,23 +33,35 @@ export function PostComment(
   };
 
   return (
-    <div>
-      <div className="mt-9 bg-slate-400">
-        {comments.map(({ postId, id, name, email, body }) => (
-          <div key={id}>
-            <small>
-              <div>{email}</div>
-              <div>{name}</div>
-              <pre>{body}</pre>
+    <div className="w-full md:w-1/3">
+      <h2 className="text-center text-semibold underline">Comments</h2>
+      <div className="mt-4 bg-slate-100">
+        {comments.map(({ id, name, email, body }) => (
+          <div key={id} className="px-4 py-4">
+            <small className="mx-2">
+              <div className="font-semibold">{email}</div>
+              <div  className="font-semibold mb-2 capitalize">Name: {name}</div>
+              <p>{body}</p>
             </small>
             <hr />
           </div>
         ))}
       </div>
       <div className="py-[40px]">
-        <textarea value={value} onChange={handleChange} className="outline" />
+        <textarea 
+          value={newComment} 
+          onChange={handleChange} 
+          className="outline rounded-sm w-full"
+          rows={8}
+        />
         <div>
-          <button onClick={handleSubmit}>Submit Comment</button>
+          <button
+            className="border border-1 border-black rounded-sm px-4 py-2 text-sm"
+            onClick={handleSubmit}
+            disabled={newComment.trim() === ""}
+          >
+            Submit Comment
+          </button>
         </div>
       </div>
     </div>

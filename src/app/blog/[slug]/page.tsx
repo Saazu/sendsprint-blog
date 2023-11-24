@@ -45,16 +45,15 @@ export default async function Page(
   const comments: Comment[] = await getComments(slug);
 
   return (
-    <div className="w-full">
-      <h1 className="">{title}</h1>
-      <p>By: User {userId}</p>
-      <div>
-        <pre className="pt-9">
+    <div className="group flex flex-col items-center text-dark dark:text-light px-8">
+      <h1 className="font-bold pt-8 uppercase text-lg">{title}</h1>
+      <div className="flex justify-center">
+        <p className="pt-9 w-full md:w-1/3">
           {body}
-        </pre>
+        </p>
       </div>
-      <div>
-        
+      <div className="mt-8 w-full md-w-1/3 flex justify-center">
+        <PostComment comments={comments} />
       </div>
     </div>
   );
