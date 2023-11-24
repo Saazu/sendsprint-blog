@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`flex flex-col h-screen ${inter.className} min-h-full`}>
+      <body className={`${inter.className}`}>
         <Header />
         {children}
       </body>

@@ -26,7 +26,6 @@ export function PostComment(
       };
 
       await postComment(dataIn);
-
       setComments((prev) => [...prev, dataIn as Comment]);
     } catch (error) {
       console.error(error);
@@ -35,7 +34,7 @@ export function PostComment(
 
   return (
     <div>
-      <div className="mt-9 bg-slate-4d00">
+      <div className="mt-9 bg-slate-400">
         {comments.map(({ postId, id, name, email, body }) => (
           <div key={id}>
             <small>

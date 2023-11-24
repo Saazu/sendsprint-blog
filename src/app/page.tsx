@@ -1,5 +1,5 @@
 import React from "react";
-import { Paginator } from "../components/paginator";
+import { Paginator } from "../components/Paginator";
 import { BASE_URL } from "@/utils/constant";
 
 
@@ -15,7 +15,7 @@ export default async function Home() {
   const data = await getBlogInfo();
 
   return (
-    <div className="p-8 h-full w-full">
+    <div className="">
       <Paginator data={data} />
     </div>
   );

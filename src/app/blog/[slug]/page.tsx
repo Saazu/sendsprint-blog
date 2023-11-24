@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PostComment } from "./comment";
 import { BASE_URL, COMMENT_URL } from "@/utils/constant";
 
@@ -46,20 +45,17 @@ export default async function Page(
   const comments: Comment[] = await getComments(slug);
 
   return (
-    <>
-      <h1 className="font-bold pt-8">{title}</h1>
+    <div className="w-full">
+      <h1 className="">{title}</h1>
+      <p>By: User {userId}</p>
       <div>
         <pre className="pt-9">
-            <em>{body}</em>
+          {body}
         </pre>
       </div>
-      <h2>ID: {id} - USERID:{userId}</h2>
-
-      <PostComment comments={comments} />
-
-      <Link href="/">
-        <div className="pt-[50px]">Go Home</div>
-      </Link>
-    </>
+      <div>
+        
+      </div>
+    </div>
   );
 }
