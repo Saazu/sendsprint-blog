@@ -3,6 +3,7 @@
 import Fuse from "fuse.js"
 import { useState } from "react"
 import BlogListItem from "./BlogListItem"
+import Image from "next/image";
 import Link from "next/link";
 import PaginationContols from "./PaginationControls";
 
@@ -59,9 +60,15 @@ export function Paginator({ data: pageData }: Readonly<PaginatorProps>) {
       </div>
       
       <div className="flex flex-col jusitfy-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-16 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-8 mt-16">
           {data.slice(page, page + PAGE_CONSTANT).map(({ id, title }) => (
              <div key={id} className="mx-12 mb-8 border border-1 border-gray-200 rounded-md p-4">
+              <Image
+                width={400}
+                height={400}
+                src="https://picsum.photos/seed/picsum/400/"
+                alt="Random"
+              />
               <Link href={`/blog/${id}`}>
                 <span className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 col-span-1 row-span-1 relative">
                   {`${title}`}
