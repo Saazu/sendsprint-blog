@@ -1,5 +1,5 @@
 import React from "react";
-import { Paginator } from "../components/Paginator";
+import { Paginator } from "../components/Posts";
 import { BASE_URL } from "@/utils/constant";
 
 

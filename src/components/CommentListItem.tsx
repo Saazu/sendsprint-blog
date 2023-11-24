@@ -15,5 +15,5 @@ export default function CommentListItem(props: CommentListItemProps) {
       </small>
       <hr />
     </>
-  )
+  );
 }

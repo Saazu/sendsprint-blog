@@ -1,8 +1,7 @@
 "use client";
 
-import Fuse from "fuse.js"
-import { useState } from "react"
-import BlogListItem from "./BlogListItem"
+import Fuse from "fuse.js";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PaginationContols from "./PaginationControls";
@@ -62,7 +61,7 @@ export function Paginator({ data: pageData }: Readonly<PaginatorProps>) {
       <div className="flex flex-col jusitfy-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-8 mt-16">
           {data.slice(page, page + PAGE_CONSTANT).map(({ id, title }) => (
-             <div key={id} className="mx-12 mb-8 border border-1 border-gray-200 rounded-md p-4">
+            <div className="mx-12 mb-8 border border-1 border-gray-200 rounded-md p-4">
               <Link href={`/blog/${id}`}>
                 <Image
                   width={400}
@@ -75,7 +74,7 @@ export function Paginator({ data: pageData }: Readonly<PaginatorProps>) {
                   {`${title}`}
                 </span>
               </Link>
-            </div>
+            </div> 
           ))}
         </div>
            

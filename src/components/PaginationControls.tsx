@@ -27,5 +27,5 @@ export default function PaginationContols (props: Readonly<PaginationProps>) {
         </li>
       </ul>
     </nav>
-  )
+  );
 }

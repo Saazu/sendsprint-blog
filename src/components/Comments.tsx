@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import type { Comment } from "../app/blog/[slug]/page";
+import type { TComment } from "../app/blog/[slug]/page";
 import CommentListItem from "./CommentListItem";
 
 export function PostComment(
-  { comments: postComments }: { comments: Comment[] },
+  { comments: postComments }: { comments: TComment[] },
 ) {
   const [comments, setComments] = React.useState(postComments);
   const [newComment, setNewComment] = React.useState("");
@@ -27,7 +27,7 @@ export function PostComment(
       };
 
       await postComment(dataIn);
-      setComments((prev) => [...prev, dataIn as Comment]);
+      setComments((prev) => [...prev, dataIn as TComment]);
     } catch (error) {
       console.error(error);
     }
@@ -68,7 +68,7 @@ export function PostComment(
 }
 
 async function postComment(
-  { body, postId, id, email }: Comment,
+  { body, postId, id, email }: TComment,
 ) {
   try {
     if (body) {

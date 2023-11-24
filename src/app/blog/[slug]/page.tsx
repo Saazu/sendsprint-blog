@@ -8,7 +8,7 @@ type TBlog = {
   body: string;
 };
 
-export type Comment = {
+export type TComment = {
   postId: number;
   id: number;
   name: string;
@@ -42,7 +42,7 @@ export default async function Page(
 ) {
   const { slug } = params;
   const { userId, id, title, body }: TBlog = await getBlogContent(slug);
-  const comments: Comment[] = await getComments(slug);
+  const comments: TComment[] = await getComments(slug);
 
   return (
     <div className="group flex flex-col items-center text-dark dark:text-light px-8">

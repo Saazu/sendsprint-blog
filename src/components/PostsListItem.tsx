@@ -2,16 +2,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-type BlogListItemProps = {
+type PostsListItemProps = {
    title: string; 
    id: number; 
-   body?: string;
 };
 
-export default async function BlogListItem(props: Readonly<BlogListItemProps>) {
+export default async function PostsListItem(props: Readonly<PostsListItemProps>) {
   const { title, id } = props;
   return (
-    <div key={id} className="mx-12 mb-8 border border-1 border-gray-200 rounded-md p-4">
+    <div className="mx-12 mb-8 border border-1 border-gray-200 rounded-md p-4">
       <Link href={`/blog/${id}`}>
         <Image
           width={400}
