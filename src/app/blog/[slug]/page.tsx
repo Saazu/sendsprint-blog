@@ -1,4 +1,4 @@
-import { PostComment } from "./comment";
+import { PostComment } from "../../../components/Comments";
 import { BASE_URL, COMMENT_URL } from "@/utils/constant";
 
 type TBlog = {

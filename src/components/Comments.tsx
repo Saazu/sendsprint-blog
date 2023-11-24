@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import type { Comment } from "./page";
+import type { Comment } from "../app/blog/[slug]/page";
+import CommentListItem from "./CommentListItem";
 
 export function PostComment(
   { comments: postComments }: { comments: Comment[] },
@@ -38,12 +39,10 @@ export function PostComment(
       <div className="mt-4 bg-slate-100">
         {comments.map(({ id, name, email, body }) => (
           <div key={id} className="px-4 py-4">
-            <small className="mx-2">
-              <div className="font-semibold">{email}</div>
-              <div  className="font-semibold mb-2 capitalize">Name: {name}</div>
-              <p>{body}</p>
-            </small>
-            <hr />
+            <CommentListItem 
+              name={name} 
+              email={email} 
+              body={body}/>
           </div>
         ))}
       </div>
