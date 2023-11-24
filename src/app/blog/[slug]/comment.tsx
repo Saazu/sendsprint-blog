@@ -51,7 +51,7 @@ export function PostComment(
         <textarea 
           value={newComment} 
           onChange={handleChange} 
-          className="outline rounded-sm w-full"
+          className="outline rounded-sm w-full p-2"
           rows={8}
         />
         <div>
