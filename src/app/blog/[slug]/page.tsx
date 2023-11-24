@@ -48,6 +48,7 @@ export default async function Page(
     <div className="group flex flex-col items-center text-dark dark:text-light px-8">
       <h1 className="font-bold pt-8 uppercase text-lg">{title}</h1>
       <div className="flex justify-center">
+        
         <p className="pt-9 w-full md:w-1/3">
           {body}
         </p>

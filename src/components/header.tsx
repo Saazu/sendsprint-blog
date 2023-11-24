@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import sendsprintIcon from '../assets/images/logo.svg'
+import sendsprintIcon from '../assets/images/logo.svg';
 
 export default async function Home() {
 return (

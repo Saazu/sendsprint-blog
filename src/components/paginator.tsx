@@ -63,18 +63,19 @@ export function Paginator({ data: pageData }: Readonly<PaginatorProps>) {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-8 mt-16">
           {data.slice(page, page + PAGE_CONSTANT).map(({ id, title }) => (
              <div key={id} className="mx-12 mb-8 border border-1 border-gray-200 rounded-md p-4">
-              <Image
-                width={400}
-                height={400}
-                src="https://picsum.photos/seed/picsum/400/"
-                alt="Random"
-              />
               <Link href={`/blog/${id}`}>
+                <Image
+                  width={400}
+                  height={400}
+                  src="https://picsum.photos/seed/picsum/400/"
+                  alt="Random"
+                />
+              
                 <span className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 col-span-1 row-span-1 relative">
                   {`${title}`}
                 </span>
               </Link>
-           </div>
+            </div>
           ))}
         </div>
            

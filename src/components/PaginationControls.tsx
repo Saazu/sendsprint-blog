@@ -2,7 +2,7 @@ type PaginationProps = {
   handlePrevious: () => void
   handleNext: () => void
   pageSize: number
-}
+};
 
 export default function PaginationContols (props: Readonly<PaginationProps>) {
   const { handleNext, handlePrevious, pageSize } = props;
