@@ -1,5 +1,5 @@
 import React from "react";
-import { Paginator } from "../components/Posts";
+import { PostsList } from "../components/Posts";
 import { BASE_URL } from "@/utils/constant";
 
 
@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <div className="">
-      <Paginator data={data} />
+      <PostsList data={data} />
     </div>
   );
 }
