@@ -1,22 +1,22 @@
 import React from "react";
-import { PostsList } from "../components/Posts";
+import { PostsList } from "../components/PostsList";
 import { BASE_URL } from "@/utils/constant";
 
 
 export async function getBlogInfo() {
-  const data = await fetch(BASE_URL);
-  const posts: { title: string; id: number; body: string }[] = await data
+  const blogPosts = await fetch(BASE_URL);
+  const posts: { title: string; id: number; body: string }[] = await blogPosts
     .json();
 
   return posts.map(({ title, id, body }) => ({ title, id, body }));
 }
 
 export default async function Home() {
-  const data = await getBlogInfo();
+  const posts = await getBlogInfo();
 
   return (
     <div className="">
-      <PostsList data={data} />
+      <PostsList data={posts} />
     </div>
   );
 }

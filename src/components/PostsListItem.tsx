@@ -19,7 +19,7 @@ export default async function PostsListItem(props: Readonly<PostsListItemProps>)
           alt="Random"
         />
       
-        <span className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 col-span-1 row-span-1 relative">
+        <span role="heading" className="capitalize underline text-blue-600 hover:text-blue-800 visited:text-purple-600 col-span-1 row-span-1 relative">
           {`${title}`}
         </span>
       </Link>

@@ -1,11 +1,11 @@
 type PaginationProps = {
   handlePrevious: () => void
   handleNext: () => void
-  pageSize: number
+  pageSize?: number
 };
 
 export default function PaginationContols (props: Readonly<PaginationProps>) {
-  const { handleNext, handlePrevious, pageSize } = props;
+  const { handleNext, handlePrevious } = props;
   return (
     <nav aria-label="Blog list navigation">
       <ul className="inline-flex -space-x-px text-base h-10">
